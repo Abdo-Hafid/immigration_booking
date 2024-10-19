@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+    <title>{% block title %}DEMO{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/framework.css' %}">
+    <link href="{% static 'css/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/rome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMTnB4YtP2cuy4Vy98Wkk6y9zKpQkF3H4UVo3M" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Scripts JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+    <!-- Layout Styles -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all">
+    
+      <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+</head>
+<body id="top"  style="">
+  <nav class="navbar fixed-top bg-body-tertiary">
+    <div class="container-fluid">
+      <p><i class="bi bi-envelope rgtspace-5"></i> contact@Younes Lahjomrier.DEMO</p>
+      <p><i class="bi bi-telephone rgtspace-5"></i> +212 DEMO2024/10</p>
+    </div>
+  </nav>
+
+    <section class="ftco-section">   
+      <div class="container">
+        <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+          <div class="container">
+            <a class="navbar-brand" href="{% url 'reservations:home' %}">Younes Lahjomri</a>
+            <div class="social-media order-lg-last">
+              <p class="mb-0 d-flex">
+                <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+              </p>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="fa fa-bars"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+              <ul class="navbar-nav ml-auto mr-md-3">
+                <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Work</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      <!-- END nav -->
+    </div>
+    </section>
+    {% block content %}{% endblock %}
+    <footer class="bg-dark text-white mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-left">
+            <p>&copy;  abdelhafid.dev@gmail.com. | +212643349787</p>
+          </div>
+          <div class="col-md-6 text-right">
+            <a href="#" class="text-white">Politique de confidentialité</a> | 
+            <a href="#" class="text-white">Conditions d'utilisation</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+  
+
+  
+  
+
+{% comment %} <!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- En-tête de l'image de fond -->
+<div class="bgded overlay padtop" style=""> 
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <header id="header" class="hoc clear">
+    <div id="logo" class="fl_left"> 
+      <!-- ################################################################################################ -->
+      <h1><a href="{% url 'reservations:home' %}"><img src="{% static 'images/logo.png' %}" class="himg" alt="">YOUNES</a></h1>
+      <!-- ################################################################################################ -->
+    </div>
+    <nav id="mainav" class="fl_right"> 
+      <!-- ################################################################################################ -->
+      <ul class="clear">
+        <li class=""><a href="{% url 'reservations:home' %}">Accueil</a></li>
+        
+        <li><a class="drop">Activités</a>
+          <ul>
+            <li><a class="" href="{% url 'reservations:home'  %}">Activités</a></li>
+            {% for offre in all_offres %}
+              <li><li><a href="{% url 'reservations:home'  %}">{{ offre.name }}</a></li></li>
+            {% endfor %}
+          </ul>
+          
+        </li>
+        <li><a href="{% url 'reservations:home' %}">Contact</a></li>
+        <li><a href="{% url 'reservations:home' %}">À Propos</a></li>
+      </ul>
+      <!-- ################################################################################################ -->
+    </nav>
+  </header>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+{% block content %}{% endblock %}
+<!-- ################################################################################################ -->
+<!-- Enveloppe de l'image de fond inférieure -->
+<div class="bgded overlay" style=""> 
+  <!-- ################################################################################################ -->
+  <div class="wrapper row4">
+    <footer id="footer" class="hoc clear"> 
+      <!-- ################################################################################################ -->
+      <div class="group btmspace-50" style="align-items: center;justify-content: center;">
+        <h1 style="color:#fff;"><img src="{% static 'images/logo.png' %}" class="logimg" alt="">REDA CAVALIER</h1>
+        <!-- ################################################################################################ -->
+        <hr class="btmspace-50">
+        <!-- ################################################################################################ -->
+        <nav>
+            <ul class="nospace">
+                <li><a href="{% url 'reservations:home' %}"><img src="{% static 'images/logo.png' %}" class="himg" alt=""></a></li>
+                <li><a href="{% url 'reservations:home' %}">À Propos</a></li>
+                <li><a href="{% url 'reservations:home' %}">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- ################################################################################################ -->
+      </div>
+    </footer>
+  </div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div class="wrapper row5">
+    <div id="copyright" class="hoc clear"> 
+      <!-- ################################################################################################ -->
+      <p class="fl_left">REDA CAVALIER &copy; 2024 - Tous droits réservés -</p>
+      <p class="fl_right">Essaouira, Maroc</a></p>
+      <!-- ################################################################################################ -->
+    </div>
+  </div>
+  <!-- ################################################################################################ -->
+</div>
+<!-- Fin de l'enveloppe de l'image de fond inférieure -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="bi bi-chevron-up"></i></a>
+<a href="https://wa.me/212780742117?text=Bonjour, je voudrais plus d'informations." 
+   class="whatsapp-button" target="_blank">
+   
+   <img src="{% static 'images/whatsapp-icon.png' %}" alt="WhatsApp" />
+</a> {% endcomment %}
+<!-- JAVASCRIPTS -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.backtotop.js' %}"></script>
+<script src="{% static 'js/jquery.mobilemenu.js' %}"></script>
+</body>
+</html>

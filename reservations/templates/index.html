@@ -1,0 +1,233 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}DEMO{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<div class="container text-center">
+  <div class="col-12 align-self-center">
+    <h3>Votre avenir commence ici</h3>
+    <p>Rejoignez-nous pour saisir de nouvelles opportunités et réaliser vos ambitions au Canada.</p>
+    <a href="#" class="btn btn-danger"data-bs-toggle="modal" data-bs-target="#reservationModal" style="margin-top:10px;">Parler à l'expert</a>
+    <a href="#" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#reservationModal" style="margin-top:10px;">Postuler à l'immigration</a>
+  </div>
+
+  <!-- Nouvelle section avec image à gauche et texte à droite -->
+  <div class="row align-items-center mt-5">
+    <div class="col-md-6 text-center">
+      <img src="{% static 'images/background.jpg' %}" alt="Opportunités Canada" class="img-fluid" style="max-width: 100%;">
+    </div>
+    <div class="col-md-6">
+      <h4>Pourquoi nous choisir ?</h4>
+      <p>
+        Nous vous accompagnons à chaque étape de votre processus d'immigration, avec des conseils d'experts et un service personnalisé. Nous vous aidons à transformer vos rêves en réalité et à explorer les vastes opportunités que le Canada a à offrir.
+      </p>
+      <a href="#"  class="btn btn-outline-danger btn-lg"  data-bs-toggle="modal" data-bs-target="#reservationModal" style="margin-top:10px;">Réserver un rendez-vous</a>
+    </div> 
+  </div>
+  <!-- Modal Bootstrap pour le formulaire de réservation -->
+  <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="reservationModalLabel">Réserver un rendez-vous </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form method="POST" action="{% url 'reservations:creer_reservation' %}">
+              {% csrf_token %}
+              
+              <!-- Formulaire de Candidat -->
+              <h5>Informations du candidat</h5>
+              <div class="mb-3">
+                  <label for="prenom" class="form-label">Prénom</label>
+                  <input type="text" id="prenom" name="prenom" class="form-control" required>
+              </div>
+          
+              <div class="mb-3">
+                  <label for="name" class="form-label">Nom</label>
+                  <input type="text" id="name" name="name" class="form-control" required>
+              </div>
+          
+              <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" id="email" name="email" class="form-control" required>
+              </div>
+          
+              <div class="mb-3">
+                  <label for="adresse" class="form-label">Adresse</label>
+                  <input type="text" id="adresse" name="adresse" class="form-control" required>
+              </div>
+          
+              <div class="mb-3">
+                  <label for="ville" class="form-label">Ville</label>
+                  <input type="text" id="ville" name="ville" class="form-control" required>
+              </div>
+          
+              <div class="mb-3">
+                  <label for="num" class="form-label">Numéro de téléphone</label>
+                  <input type="text" id="num" name="num" class="form-control" required>
+              </div>
+          
+              <!-- Formulaire de Réservation -->
+              <h5>Informations de la réservation</h5>
+              <div class="row">
+                <div class="col-md-12">
+                    <div id="inline_cal"></div>
+                    <!-- Champ caché pour stocker la date sélectionnée -->
+                    <input type="hidden" id="selected_date" name="date" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                  <label for="time" class="form-label">Sélectionnez une plage horaire :</label>
+                  <div class="container text-center">
+                    <div class="row">
+                      <div class="col form-check time-slot">
+                          <input class="form-check-input time-input" type="radio" name="time" id="time1" value="09:00" required>
+                          <label class="form-check-label" for="time1">9h - 10h</label>
+                      </div>
+              
+                      <div class="col form-check time-slot">
+                          <input class="form-check-input time-input" type="radio" name="time" id="time2" value="10:00">
+                          <label class="form-check-label" for="time2">10h:00</label>
+                      </div>
+              
+                      <div class="col form-check time-slot">
+                          <input class="form-check-input time-input" type="radio" name="time" id="time3" value="11:00">
+                          <label class="form-check-label" for="time3">11h:00</label>
+                      </div>
+              
+                      <div class="col form-check time-slot">
+                          <input class="form-check-input time-input" type="radio" name="time" id="time4" value="12:00">
+                          <label class="form-check-label" for="time4">12h:00</label>
+                      </div>
+                      <!-- Ajouter les autres créneaux horaires ici -->
+                  </div>
+                  <div class="row">
+                      <div class="col form-check time-slot">
+                          <input class="form-check-input time-input" type="radio" name="time" id="time5" value="14:00">
+                          <label class="form-check-label" for="time5">14h:00</label>
+                      </div>
+              
+                      <div class="col form-check time-slot">
+                          <input class="form-check-input time-input" type="radio" name="time" id="time6" value="15:00">
+                          <label class="form-check-label" for="time6">15h:00</label>
+                      </div>
+              
+                      <div class="col form-check time-slot">
+                          <input class="form-check-input time-input" type="radio" name="time" id="time7" value="16:00">
+                          <label class="form-check-label" for="time7">16h:00</label>
+                      </div>
+              
+                      <div class="col form-check time-slot">
+                          <input class="form-check-input time-input" type="radio" name="time" id="time8" value="17:00">
+                          <label class="form-check-label" for="time8">17h:00</label>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+             <div class="mb-3">
+                <label for="service" class="form-label">Service</label>
+                <select id="service" name="service" class="form-select" required>
+                    <option value="à distance">À distance</option>
+                    <option value="En personne">En personne</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-danger">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="alert" class="alert alert-danger alert-dismissible fade show" style="position: absolute; top: 20px; right: 20px; display: none;" role="alert">
+  <span id="alert-message"></span>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  flatpickr("#inline_cal", {
+    inline: true,
+    minDate: "today",
+    disable: [
+        function(date) {
+            return (date.getDay() === 6 || date.getDay() === 0); // Désactive les week-ends
+        }
+    ],
+    dateFormat: "Y-m-d",
+    onChange: function(selectedDates, dateStr, instance) {
+        // Met à jour le champ caché avec la date sélectionnée
+        document.getElementById('selected_date').value = dateStr;
+    }
+});
+function showAlert(message, type) {
+  // Mettre à jour le message et le type de l'alerte
+  $('#alert-message').text(message);
+  $('#alert').removeClass('alert-danger alert-success').addClass(`alert-${type}`);
+  $('#alert').show();
+}
+
+// Exemples d'appels à showAlert
+$(document).ready(function() {
+  // Afficher un message d'erreur (par exemple)
+  showAlert('Ceci est un message d\'erreur !', 'danger');
+  
+  // Afficher un message de succès (exemple)
+  // showAlert('Réservation créée avec succès !', 'success');
+});
+</script>
+
+<!-- Custom Style -->
+<style>
+  .flatpickr-calendar {
+      border: 2px solid red; /* Bordure rouge */
+  }
+  .flatpickr-day.today {
+      background-color: red; /* Jour d'aujourd'hui en rouge */
+      color: white;
+  }
+  .flatpickr-day.selected {
+      background-color: white; /* Jour sélectionné en blanc */
+      color: red;
+      border-color: red;
+  }
+  .flatpickr-day:hover {
+      background-color: red; /* Survol en rouge */
+      color: white;
+  }
+  .flatpickr-month, .flatpickr-weekday {
+      background-color: red; /* Mois et jours en rouge */
+      color: white;
+  }
+  .time-input {
+    display: none; /* Cache les boutons radio */
+  }
+  
+  .time-slot {
+    border: 2px solid red;
+    color: red;
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+  
+  .time-slot:hover {
+    background-color: red;
+    color: white;
+  }
+  
+  .time-input:checked + .form-check-label {
+    background-color: red;
+    color: white;
+    border-color: red;
+  }
+</style>
+{% endblock %}
